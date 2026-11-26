@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - PetCare</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f7f5;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      width: 100%;
+      max-width: 450px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px #00000012;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4caf9c;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #777;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4caf9c;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #4caf9c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #328b7b;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 20px;
+      line-height: 2;
+    }
+
+    a {
+      color: #328b7b;
+      text-decoration: none;
+    }
+
+    #mensagem {
+      text-align: center;
+      margin-top: 15px;
+      color: #328b7b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🐾 PetCare</h1>
+    <p class="subtitle">Crie sua conta</p>
+
+    <form id="cadastroForm">
+
+      <label for="nome">Nome completo</label>
+      <input
+        type="text"
+        id="nome"
+        placeholder="Digite seu nome"
+        required
+      >
+
+      <label for="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Digite seu e-mail"
+        required
+      >
+
+      <label for="senha">Senha</label>
+      <input
+        type="password"
+        id="senha"
+        placeholder="Crie uma senha"
+        minlength="6"
+        required
+      >
+
+      <label for="confirmarSenha">Confirmar senha</label>
+      <input
+        type="password"
+        id="confirmarSenha"
+        placeholder="Digite a senha novamente"
+        minlength="6"
+        required
+      >
+
+      <button type="submit">Criar conta</button>
+
+      <p id="mensagem"></p>
+
+    </form>
+
+    <div class="links">
+      <p>Já tem uma conta?</p>
+      <a href="login.html">Entrar</a>
+      <br>
+      <a href="index.html">Voltar ao início</a>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const senha = document.getElementById("senha").value;
+      const confirmarSenha = document.getElementById("confirmarSenha").value;
+      const mensagem = document.getElementById("mensagem");
+
+      if (senha !== confirmarSenha) {
+        mensagem.textContent = "As senhas não coincidem!";
+        return;
+      }
+
+      mensagem.textContent =
+        "Tela criada! O cadastro será conectado à API.";
+    });
+  </script>
+
+</body>
+</html>
